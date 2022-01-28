@@ -20,8 +20,7 @@ class MaskType(Enum):
     CN_CCSN = "cn_ccsn"
     URL = ""
     # 纯数字
-    INT_NUMER = "int_number"
-    
+    INT_NUMBER = "int_number"
     # 关键词
     KEY_WORD = "KEY_WORD"
 
@@ -33,8 +32,11 @@ class MaskMethod(Enum):
     ENCRYPT = "encrypt"
     # 无功能缺失的处理
     EMULATE = "emulate"
+    # 完全删除
     DELETE = "delete"
+    # 截取
     CUT = "cut"
+    # 混淆
     CONFUSE = "confuse"
 
 class Maskor():
@@ -44,14 +46,16 @@ class Maskor():
     def __init__(self) -> None:
         pass
 
-    def mapping_mask(self, value):
-        return value
-
-    def text_mask(self, value, mask_scope:List[MaskType]=None, extend_info=None):
+    def text_mask(self, value, mask_method:MaskMethod=None, mask_scope:List[MaskType]=None, extend_info=None):
+        """文本脱敏
+        """
         pass
 
-    def full_text_mask(self, value):
+    def full_text_mask(self, value, mask_method:MaskMethod=None, mask_scope:List[MaskType]=None, extend_info=None):
+        """ 全文脱敏 
+        """
         pass
     
-    def field_mask(self,  value, mask_scope:List[MaskType]=None, extend_info=None):
-        pass
+    def field_mask(self, value, mask_method:MaskMethod=None, mask_scope:List[MaskType]=None, extend_info=None):
+        """字段脱敏
+        """
