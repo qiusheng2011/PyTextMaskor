@@ -7,6 +7,7 @@ from src.maskexecuter.url.hit import UrlHitor
 from src.maskexecuter.ip.hit import IpHitor
 from src.maskexecuter.email.hit import EmailHitor
 from src.maskexecuter.key_word.hit import KeyWordHitor
+from src.maskexecuter.bank_number.hit import BankNumberHitor
 class TestHitor(unittest.TestCase):
 
     def test_phone(self):
@@ -35,9 +36,15 @@ class TestHitor(unittest.TestCase):
         locations = hit.hit("阿斯顿发送到发2286422556sdf@qq.com时代峰峻啊快递费")
         print(locations)
         self.assertIsNotNone(locations)
-    
+
     def test_keywords(self):
         hit = KeyWordHitor(["地址","快递"])
         locations = hit.hit("阿斯顿发送到发2286422556sdf@qq.com时代峰峻啊地址快递费")
+        print(locations)
+        self.assertIsNotNone(locations)
+    
+    def test_banknumber(self):
+        hit = BankNumberHitor()
+        locations = hit.hit("阿斯顿发送到发2286422556sdf@qq.com时代峰峻啊地址快递费6212262201023557228")
         print(locations)
         self.assertIsNotNone(locations)
