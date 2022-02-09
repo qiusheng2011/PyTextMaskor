@@ -1,9 +1,11 @@
 
 import re
-
+import time
 class PhoneHitor():
     
     def hit(self, value):
+        """ 匹配命中
+        """
         value_type = type(value)
         tmp = ""
         if value_type == int:
@@ -12,7 +14,9 @@ class PhoneHitor():
             tmp = value
         else:
             raise ValueError("")
-        match = re.search(r"1\d{10}", value)
-        return list(match.regs) if match else []
+        a = time.time()
+        match = re.finditer(r"((?<=[^\d])1\d{10}(?=[^\d]+)|(^1\d{10}$)|(^1\d{10}(?=[^\d]+))|((?<=[^\d])1\d{10}$))", tmp)
+        print(f"cost:{(time.time()-a)*1000}ms")
+        return [ (i.start(), i.end()) for i in match] if match else []
 
 
