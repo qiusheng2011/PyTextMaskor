@@ -57,5 +57,4 @@ class TestHitor(unittest.TestCase):
         print(locations)
         for s,e in locations:
             print(t[s:e])
-            
         self.assertIsNotNone(locations)

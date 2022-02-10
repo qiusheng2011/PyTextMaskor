@@ -22,7 +22,11 @@ class MaskType(Enum):
     # 纯数字
     INT_NUMBER = "int_number"
     # 关键词
-    KEY_WORD = "KEY_WORD"
+    KEY_WORD = "key_word"
+    # 地址
+    ADDRESS = 'address'
+    # 中文名称
+    CN_NAME = 'cn_name'
 
 class MaskMethod(Enum):
     """ 脱敏方法
